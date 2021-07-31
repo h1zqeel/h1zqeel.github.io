@@ -101,8 +101,9 @@ const myMazeHard = [
 [1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 1],
 [1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
 ];
-var myMaze;
 
+var myMaze;
+// make rectangle
 function makeRect(x, y, width, height, fill, opacity, id = false) {
     var rect = document.createElementNS(namespace, "rect");
     rect.setAttribute("x", x);
@@ -129,6 +130,8 @@ function makeRect(x, y, width, height, fill, opacity, id = false) {
   var playerMatrixY = 0;
   var steps = 0;
   var collectables = 0;
+
+  // rendering the maze
   function createMaze(){
         
         for(var i = 0; i < myMaze.length; i++){
@@ -166,20 +169,10 @@ function makeRect(x, y, width, height, fill, opacity, id = false) {
         }
         
   }
-  var playerLocationX = 0;
-  var playerLocationY = 0;
-  var playerMatrixX = 0;
-  var playerMatrixY = 0;
-  var steps = 0;
+ 
+// rendering the player
   function makePlayer(){
-    // var player = document.createElementNS(namespace, "rect");
-    //         player.setAttribute("x", 0);
-    //         player.setAttribute("y", 0);
-    //         player.setAttribute("width", 20);
-    //         player.setAttribute("height", 20);
-    //         player.setAttribute("fill", 'yellow');
-    //         player.setAttribute("opacity", 1);
-    //         player.setAttribute("stroke","brown");
+    
     var player = document.createElementNS(namespace, "circle");
             player.setAttribute("cx",10);
             player.setAttribute("cy",10);
@@ -194,6 +187,7 @@ function makeRect(x, y, width, height, fill, opacity, id = false) {
     maze.appendChild(g);
     //   makeRect(playerLocationX,playerLocationY,20,20,"yellow",1,true);
   }
+  // function call on game complete
   function gameComplete(){
     const p = document.createElement("p");
     p.setAttribute("id","complete")
@@ -204,6 +198,7 @@ function makeRect(x, y, width, height, fill, opacity, id = false) {
   
      gameCompleted = true; 
   }
+// moving the player
   function movePlayer(){
     var player = document.getElementById("player");
     var toSet = 'translate('+ playerLocationX+','+playerLocationY+')'
@@ -303,8 +298,8 @@ function makeRect(x, y, width, height, fill, opacity, id = false) {
     }
     
   }
-
-  async function init(){
+  //initialize
+   function init(){
     document.getElementById("time").style.opacity = '1';
     gameCompleted = false;
       document.getElementById('log').style.display = 'block';
@@ -346,6 +341,7 @@ function makeRect(x, y, width, height, fill, opacity, id = false) {
     document.getElementById('svg').style.opacity = '1';
   }
 
+  //play again or reset
   function playAgain(){
       document.getElementById("time").style.opacity = '0';
     document.getElementById('svg').style.opacity = '0';
@@ -366,7 +362,7 @@ function makeRect(x, y, width, height, fill, opacity, id = false) {
     gameCompleted = true;
   
   }
-
+  //timer
   function updateTime(t){
       timeUp = false;
       var time = document.getElementById('time');
