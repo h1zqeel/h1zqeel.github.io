@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Georama:wght@300&display=swap" rel="stylesheet">
+    <script src="js/index.js"></script>
+    
+    <link rel="stylesheet" href="css/index.css">
+    <title>Maze Game</title>
+</head>
+<body onload="">
+    <center>
+      <h1>Maze Game: Frontend Coding Challenge</h1>
+      <p><b><span style="opacity: 0;" id="time">Time Left (Seconds): </span></b></p>
+    <div>
+      <div id="menu">
+        <h4>Choose Game Mode</h4>
+        <ul id="myUl">
+          <li>
+            <input type="radio" name="mode" id="easy" checked> 
+            <label>Easy</label>
+          </li>
+          <li>
+            <input type="radio" name="mode" id="hard">
+            <label>Hard</label>
+          </li>
+        </ul>
+        <button class="btn" onclick="init();">Start</button>
+      </div>
+      <div id="svg"></div>
+    
+    </div>
+    <div style="display: none;" id="steps">
+      <p>Steps: <span id="stepsCount">0</span></p>
+      <p>Collectables: <span id="collectables">0</span></p>
+    </div>
+    <div style="display:none" id="log">
+      <button onclick="playAgain();" class="btn">Reset</button>
+    </div>
+</center>
+</body>
+</html>
